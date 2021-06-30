@@ -1,2 +1,2 @@
-# python-pytest-ramdomly
+# python-pytest-randomly
 Support for tox
