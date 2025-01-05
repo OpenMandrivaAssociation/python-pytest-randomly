@@ -1,43 +1,25 @@
-# Created by pyp2rpm-3.3.5
-%global pypi_name pytest-randomly
-%global altname pytest_randomly
-Name:           python-%{pypi_name}
-Version:        3.8.0
-Release:        1
-Summary:        Pytest plugin to randomly order tests and control random
-Group:          Development/Python
-License:        MIT
-URL:            https://github.com/pytest-dev/pytest-randomly
-Source0:        %{pypi_name}-%{version}.tar.gz
-BuildArch:      noarch
-
-BuildRequires:  python3-devel
-BuildRequires:  python3dist(importlib-metadata) >= 3.6
-BuildRequires:  python3dist(pytest)
-BuildRequires:  python3dist(setuptools)
+Name:		python-pytest-randomly
+Version:	3.16.0
+Release:	1
+Source0:	https://files.pythonhosted.org/packages/source/p/pytest-randomly/pytest_randomly-%{version}.tar.gz
+Summary:	Pytest plugin to randomly order tests and control random.seed.
+URL:		https://pypi.org/project/pytest-randomly/
+License:	None
+Group:		Development/Python
+BuildRequires:	python
+BuildSystem:	python
+BuildRequires:	python-devel
+BuildRequires:	python%{pyver}dist(importlib-metadata) >= 3.6
+BuildRequires:	python%{pyver}dist(pytest)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildArch:	noarch
 
 %description
- pytest-randomly :target:
+Pytest plugin to randomly order tests and control random.seed.
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
-# Remove bundled egg-info
-rm -rf %{pypi_name}.egg-info
+%autosetup -p1 -n pytest_randomly-%{version}
 
-%build
-%py3_build
-
-%install
-%py3_install
-
-%check
-%{__python3} setup.py test
-
-%files -n python-%{pypi_name}
-%license LICENSE
-%doc README.rst
-%{python3_sitelib}/__pycache__/*
-%{python3_sitelib}/pytest_randomly.py
-%{python3_sitelib}/%{altname}.py
-%{python3_sitelib}/%{altname}-%{version}-py%{python3_version}.egg-info
-
+%files
+%{py_sitedir}/pytest_randomly
+%{py_sitedir}/pytest_randomly-%{version}.dist-info
