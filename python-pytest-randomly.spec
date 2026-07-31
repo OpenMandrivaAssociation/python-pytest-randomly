@@ -1,6 +1,6 @@
 Name:		python-pytest-randomly
-Version:	3.16.0
-Release:	3
+Version:	4.1.0
+Release:	1
 Source0:	https://files.pythonhosted.org/packages/source/p/pytest-randomly/pytest_randomly-%{version}.tar.gz
 Summary:	Pytest plugin to randomly order tests and control random.seed.
 URL:		https://pypi.org/project/pytest-randomly/
@@ -18,7 +18,7 @@ BuildArch:	noarch
 Pytest plugin to randomly order tests and control random.seed.
 
 %prep
-%autosetup -p1 -n pytest_randomly-%{version}
+%autosetup -p1 -n pytest_randomly-4.1.0
 
 %files
 %{py_sitedir}/pytest_randomly
